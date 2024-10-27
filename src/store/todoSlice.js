@@ -7,15 +7,15 @@ const todoSlice = createSlice({
     },
     reducers: {
         addTask: (state, action) => {
-            state.tasks.push(action.type)
+            state.tasks.push(action.payload)
         },
         deleteTask: (state, action) => {
             state.tasks = state.tasks.filter((_, index) => index != action.payload);
         },
         editTask: (state, action) => {
-            const {index, updateTask} = action.payload;
+            const {index, updatedTask} = action.payload;
             if(state.tasks[index]){
-                state.tasks[index] = updateTask;
+                state.tasks[index] = updatedTask;
             }
         },
     },
